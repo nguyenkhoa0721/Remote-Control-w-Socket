@@ -1,6 +1,6 @@
 ﻿
 # REMOTE CONTROL OVER A COMPUTER WITH SOCKET
-Điều khiển máy tính từ xa xử dụng Socket.
+>Điều khiển máy tính từ xa xử dụng Socket.
 
 ![alt text](main.png)
 
@@ -16,12 +16,12 @@
  - Cài đặt Python3, pip
  - Cài đặt các thư viện PyQT, PynNut, WinReg... có trong `Requirement.txt`
  - Máy bị điều khiển chỉ hộ trợ hệ điều hành Windows. Máy điều khiển và máy bị điều khiển trong cùng một mạng Lan
-- Gọi máy bị điều khiển là Server. Máy điều khiển là Client
+- Gọi máy bị điều khiển là Server. Máy điều khiển là Client.
 ## Cài đặt
-Clone repo về máy
+Clone repo
 
     git clone https://github.com/nguyenkhoa0721/Remote-Control-w-Socket
-Cài đặt các requirements cần thiết 
+Cài đặt các requirements
 
     pip install -r requirements.txt
 Đặt folder Server trên máy bị điều khiển. Chạy file `main.py`
@@ -36,7 +36,7 @@ Cài đặt các requirements cần thiết
 ## Cách sử dụng
 
  1. Kết nối
-Khởi chạy Server. Port mặc định kết nối đến Server là `8080`
+Khởi chạy Server. Port mặc định kServer mở là `8080`
 
 ![alt text](server_start.png)
 
