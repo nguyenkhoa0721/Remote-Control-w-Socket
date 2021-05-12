@@ -40,7 +40,7 @@ Khởi chạy Server. Port mặc định Server mở là `8080`
 
 ![alt text](server_start.png)
 
-Kết nối Client đến Server. Nhập `IP máy:Port` và nhấn kết nối. Nếu kết nối thành công sẽ có cửa sổ thông báo kết nối thành và "no connection" => IP của máy kết nối tới
+Kết nối Client đến Server. Nhập `IP máy:Port` và nhấn kết nối. Nếu kết nối thành công sẽ có cửa sổ thông báo kết nối thành công và "no connection" => IP của máy kết nối tới
 
 2. Xử lý Process running và App running
  - Nhấn `Xem` để xem các process/app đang chạy
