@@ -15,7 +15,7 @@
  ## Prerequisites
  - Cài đặt Python3, pip
  - Cài đặt các thư viện PyQT, PynNut, WinReg... có trong `Requirement.txt`
- - Máy bị điều khiển chỉ hộ trợ hệ điều hành Windows. Máy điều khiển và máy bị điều khiển trong cùng một mạng Lan
+ - Máy bị điều khiển chỉ hỗ trợ hệ điều hành Windows. Máy điều khiển và máy bị điều khiển trong cùng một mạng LAN
 - Gọi máy bị điều khiển là Server. Máy điều khiển là Client.
 ## Cài đặt
 Clone repo
@@ -36,7 +36,7 @@ Cài đặt các requirements
 ## Cách sử dụng
 
  1. Kết nối
-Khởi chạy Server. Port mặc định kServer mở là `8080`
+Khởi chạy Server. Port mặc định Server mở là `8080`
 
 ![alt text](server_start.png)
 
