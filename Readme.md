@@ -73,7 +73,7 @@ Kết nối Client đến Server. Nhập `IP máy:Port` và nhấn kết nối. 
     - Tạo key mới `Create Key`
     - Xóa key `Delete Key`
 - Nhấn `Gởi` để gởi lệnh tới Server. Các giá trị cần lấy hay kết quả thực hiện sẽ được trả về tại Browser Text. "ok" = thực thi thành công, "404" thất bại
-- Nhấn `Xóa` để xóa nội dung trên Browsẻ Text
+- Nhấn `Xóa` để xóa nội dung trên Browser Text
 
  ![alt text](register.png)
 
