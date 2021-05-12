@@ -1,6 +1,6 @@
 ﻿
 # REMOTE CONTROL OVER A COMPUTER WITH SOCKET
->Điều khiển máy tính từ xa xử dụng Socket.
+>Điều khiển máy tính từ xa sử dụng Socket.
 
 ![alt text](main.png)
 
