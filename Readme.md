@@ -2,6 +2,8 @@
 # REMOTE CONTROL OVER A COMPUTER WITH SOCKET
 >Điều khiển máy tính từ xa sử dụng Socket.
 
+##https://drive.google.com/file/d/1ikj0vE75GKcijg9dWYwSzcdCldW3DBfS/view?usp=sharing
+
 ![alt text](main.png)
 
 ## Tính năng
