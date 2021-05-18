@@ -7,13 +7,15 @@
 ![alt text](main.png)
 
 ## Tính năng
-
  - Xem, start, kill các process đang chạy
  - Xem, start, kill các app đang chạy
  - Keystroke
  - Sửa registry
  - Chụp màn hình
  - Tắt máy
+ ## Contributor
+ - Bùi Đình Nguyên Khoa - 19120018
+ - Cao Quốc Thắng - 19120035
  ## Prerequisites
  - Cài đặt Python3, pip
  - Cài đặt các thư viện PyQT, PynNut, WinReg... có trong `Requirement.txt`
