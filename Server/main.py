@@ -16,12 +16,16 @@ class Window(QMainWindow, Ui_Server):
         self.check = False
         self.pushButton.clicked.connect(self.start)
     def start(self):
+        d = None
         if (self.check == False):
             self.check = True
-            self.pushButton.setText("Started")
-            self.pushButton.setEnabled(False)
-            d = threading.Thread(name='daemon', target=ps.main)
+            self.pushButton.setText("Stop")
+            d = threading.Thread(target=ps.main)
+            d.daemon = True
             d.start()
+        elif self.check == True:
+            self.check = False
+            sys.exit()
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     win = Window()

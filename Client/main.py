@@ -23,6 +23,26 @@ class Window(QDialog, Ui_dialog_main):
         self.setupUi(self)
         self.trigger()
         self.lineEdit.setText('192.168.165.128:8080')
+
+        self.btn_cap.setEnabled(False)
+        self.btn_app.setEnabled(False)
+        self.btn_key.setEnabled(False)
+        self.btn_process.setEnabled(False)
+        self.btn_re.setEnabled(False)
+        self.btn_shutdown.setEnabled(False)
+    def _ping(self):
+        try:
+            s.sendall(b'ping')
+            return True
+        except:
+            self.label.setText("No Connection")
+            self.btn_cap.setEnabled(False)
+            self.btn_app.setEnabled(False)
+            self.btn_key.setEnabled(False)
+            self.btn_process.setEnabled(False)
+            self.btn_re.setEnabled(False)
+            self.btn_shutdown.setEnabled(False)
+        return False
     def trigger(self):
         self.btn_cap.clicked.connect(self.capture)
         self.btn_process.clicked.connect(self.process)
@@ -44,33 +64,57 @@ class Window(QDialog, Ui_dialog_main):
             s.connect(server_address)
             self.label.setText('Connect: '+self.lineEdit.text())
             QMessageBox.about(self, "Thông báo", "Connect thành công")
+            self.btn_cap.setEnabled(True)
+            self.btn_app.setEnabled(True)
+            self.btn_key.setEnabled(True)
+            self.btn_process.setEnabled(True)
+            self.btn_re.setEnabled(True)
+            self.btn_shutdown.setEnabled(True)
         except Exception as e:
             print(e)
             self.label.setText('No connection')
             QMessageBox.about(self, "Thông báo", "Connect không thành công")
     def capture(self):
+        if (self._ping()==False):
+            QMessageBox.about(self, "Thông báo", "Connect không thành công")
+            return
         dialog = Dialog_capture(self)
         dialog.exec()
     def app(self):
+        if (self._ping()==False):
+            QMessageBox.about(self, "Thông báo", "Connect không thành công")
+            return
         dialog = Dialog_app(self)
         dialog.exec()
     def key(self):
+        if (self._ping()==False):
+            QMessageBox.about(self, "Thông báo", "Connect không thành công")
+            return
         dialog = Dialog_keystroke(self)
         dialog.exec()
     def process(self):
+        if (self._ping()==False):
+            QMessageBox.about(self, "Thông báo", "Connect không thành công")
+            return
         dialog = Dialog_process(self)
         dialog.exec()
     def re(self):
+        if (self._ping()==False):
+            QMessageBox.about(self, "Thông báo", "Connect không thành công")
+            return
         dialog = Dialog_re(self)
         dialog.exec()
     def shutdown(self):
+        if (self._ping()==False):
+            QMessageBox.about(self, "Thông báo", "Connect không thành công")
+            return
         sendMsg('shutdown')
     def exit(self):
         try: 
             s.sendall(bytes('quit', "utf8"))
             s.close()
         except:
-            pass 
+            s.close()
         exit()
 class Dialog_capture(QDialog, Ui_dialog_capture):
     def __init__(self, parent=None):
@@ -109,7 +153,6 @@ class Dialog_capture(QDialog, Ui_dialog_capture):
             l = file1.read()
         file1.close()
         file2.close()
-
 
 class Dialog_process(QDialog, Ui_dialog_process):
     def __init__(self, parent=None):

