@@ -1,4 +1,3 @@
-﻿
 # REMOTE CONTROL OVER A COMPUTER WITH SOCKET
 >## Điều khiển máy tính từ xa sử dụng Socket.
 >[https://drive.google.com/file/d/1ikj0vE75GKcijg9dWYwSzcdCldW3DBfS/view?usp=sharing](https://drive.google.com/file/d/1ikj0vE75GKcijg9dWYwSzcdCldW3DBfS/view?usp=sharing)
@@ -49,20 +48,21 @@ Khởi chạy Server. Port mặc định Server mở là `8080`
 Kết nối Client đến Server. Nhập `IP máy:Port` và nhấn kết nối. Nếu kết nối thành công sẽ có cửa sổ thông báo kết nối thành công và trạng thái "no connection" sẽ chuyển thành IP của máy kết nối tới
 
 2. Xử lý Process running và App running
- - Nhấn `Xem` để xem các process/app đang chạy
- 
- Server sẽ chạy hàm List_Process()/List_App() trả về dữ liệu theo dạng json
-  - Nhấn `Xóa` để xóa dữ liệu trên bảng
-<p align="center">
+
+- Nhấn `Xem` để xem các process/app đang chạy. Server sẽ chạy hàm `List_Process()/List_App()` trả về dữ liệu theo dạng json
+- Nhấn `Xóa` để xóa dữ liệu trên bảng 
+<div align="center">
 <img src="process.png" width="350" />
-</p>
- - Nhấn `Start`, nhập tên ứng dụng chạy, nhấn phím `Enter` hoặc `Start` để khởi chạy process/app
-<p align="center">
+</div>
+
+- Nhấn `Start`, nhập tên ứng dụng chạy, nhấn phím `Enter` hoặc `Start` để khởi chạy `process/app`
+<div align="center">
 <img src="start.png" width="350" />
-</p>
- - Nhấn `Kill`, nhập ID trên bảng, nhấn phím `Enter` hoặc `Kill` tắt process/app
+</div>
+
+- Nhấn `Kill`, nhập ID trên bảng, nhấn phím `Enter` hoặc `Kill` tắt process/app
  
- Trước khi tắt process/app, server sẽ chạy hàm Check_Process()/Check_App() trả về True hoặc False để kiểm tra xem process/app đó có đang chạy bên client hay không, nếu tồn tại thì mới tắt bằng hàm os.kill(), nếu không tồn tại thông báo về cho client.
+Trước khi tắt process/app, server sẽ chạy hàm `Check_Process()/Check_App()` trả về True hoặc False để kiểm tra xem `process/app` đó có đang chạy bên client hay không, nếu tồn tại thì mới tắt bằng hàm `os.kill()`, nếu không tồn tại thông báo về cho client.
  
 <p align="center">
 <img src="kill.png" width="350" />
@@ -71,12 +71,15 @@ Kết nối Client đến Server. Nhập `IP máy:Port` và nhấn kết nối. 
 
 -  Nhấn `Hook` để theo dõi phím bấm của máy Server
 
-Khi cần Hook, server sẽ bắt đầu theo dõi bàn phím bằng hàm keyboard.Listener(on_press=on_press), trong đó hàm on_press(key) được cài đặt để với mỗi key được bấm sẽ lưu vào biến global keylog
+Khi cần Hook, server sẽ bắt đầu theo dõi bàn phím bằng hàm `keyboard.Listener(on_press=on_press)`, trong đó hàm `on_press(key)` được cài đặt để với mỗi key được bấm sẽ lưu vào biến `global keylog`
+
 - Nhấn `Unhook` để ngừng theo dõi
 - Nhấn `In Phím` để in ra nội dung phím bấm và `Xóa` để xóa nội dung trên Browser Text
+
 <p align="center">
  <img src="keystroke.png" width="350" />
 </p>
+
 4. Sửa registry
 
 - Chọn `Browser`, chọn đường dẫn đến file reg, nạp file reg và nhấn `Gởi nội dung`, file reg sẽ đường gởi đến Server và thực thi. Có thể thực hiện chỉnh sửa trực tiếp trên App
@@ -98,7 +101,7 @@ Server sử dụng các hàm của thư viện winreg để thao tác trên regi
 
 - Nhấn `Chụp` để  chụp lại màn hình hiện tại của Server 
 
-Server dùng hàm ImageGrab.grab(bbox=None) của thư viện PIL để chụp toàn bộ màn hình.
+Server dùng hàm `ImageGrab.grab(bbox=None)` của thư viện PIL để chụp toàn bộ màn hình.
 - Nhấn `Lưu` để lưu ảnh chụp màn hình. Định dạng hình là *.png
 <p align="center">
  <img src="screenshot.png" width="350" />
@@ -106,7 +109,7 @@ Server dùng hàm ImageGrab.grab(bbox=None) của thư viện PIL để chụp t
 
 6. Tắt máy
 
-Server sẽ dùng hàm os.system("shutdown /s /t 1") để tắt máy tính
+Server sẽ dùng hàm `os.system("shutdown /s /t 1")` để tắt máy tính
 
 7. Thoát
 
