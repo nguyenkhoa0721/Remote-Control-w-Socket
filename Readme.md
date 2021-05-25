@@ -8,8 +8,8 @@
 </p>
 
  ## Contributor
- - Bùi Đình Nguyên Khoa
- - Cao Quốc Thắng
+ - Bùi Đình Nguyên Khoa 19120018
+ - Cao Quốc Thắng 19120035
  
 ## Features
  - Xem, start, kill các process đang chạy
@@ -50,6 +50,8 @@ Kết nối Client đến Server. Nhập `IP máy:Port` và nhấn kết nối. 
 
 2. Xử lý Process running và App running
  - Nhấn `Xem` để xem các process/app đang chạy
+ 
+ Server sẽ chạy hàm List_Process()/List_App() trả về dữ liệu theo dạng json
   - Nhấn `Xóa` để xóa dữ liệu trên bảng
 <p align="center">
 <img src="process.png" width="350" />
@@ -59,11 +61,17 @@ Kết nối Client đến Server. Nhập `IP máy:Port` và nhấn kết nối. 
 <img src="start.png" width="350" />
 </p>
  - Nhấn `Kill`, nhập ID trên bảng, nhấn phím `Enter` hoặc `Kill` tắt process/app
+ 
+ Trước khi tắt process/app, server sẽ chạy hàm Check_Process()/Check_App() trả về True hoặc False để kiểm tra xem process/app đó có đang chạy bên client hay không, nếu tồn tại thì mới tắt bằng hàm os.kill(), nếu không tồn tại thông báo về cho client.
+ 
 <p align="center">
 <img src="kill.png" width="350" />
 </p>
 3. KeyStroke
+
 -  Nhấn `Hook` để theo dõi phím bấm của máy Server
+
+Khi cần Hook, server sẽ bắt đầu theo dõi bàn phím bằng hàm keyboard.Listener(on_press=on_press), trong đó hàm on_press(key) được cài đặt để với mỗi key được bấm sẽ lưu vào biến global keylog
 - Nhấn `Unhook` để ngừng theo dõi
 - Nhấn `In Phím` để in ra nội dung phím bấm và `Xóa` để xóa nội dung trên Browser Text
 <p align="center">
@@ -80,18 +88,26 @@ Kết nối Client đến Server. Nhập `IP máy:Port` và nhấn kết nối. 
     - Xóa key `Delete Key`
 - Nhấn `Gởi` để gởi lệnh tới Server. Các giá trị cần lấy hay kết quả thực hiện sẽ được trả về tại Browser Text. "ok" = thực thi thành công, "404" thất bại
 - Nhấn `Xóa` để xóa nội dung trên Browser Text
+
+Server sử dụng các hàm của thư viện winreg để thao tác trên registry của máy chứa server như OpenKey() để tạo object dẫn đến địa chỉ cần thao tác, QueryValueEx() để lấy thông tin từ đường dẫn, SetValueEx() để gán giá trị cho đường dẫn, CreateKey() để tạo Key, DeleteKey() để xóa Key, CloseKey() để đóng đường dẫn có được từ hàm OpenKey().
+
 <p align="center">
   <img src="register.png" width="350" />
 </p>
 5. Chụp màn hinh
 
 - Nhấn `Chụp` để  chụp lại màn hình hiện tại của Server 
+
+Server dùng hàm ImageGrab.grab(bbox=None) của thư viện PIL để chụp toàn bộ màn hình.
 - Nhấn `Lưu` để lưu ảnh chụp màn hình. Định dạng hình là *.png
 <p align="center">
  <img src="screenshot.png" width="350" />
 </p>
 
 6. Tắt máy
+
+Server sẽ dùng hàm os.system("shutdown /s /t 1") để tắt máy tính
+
 7. Thoát
 
 
